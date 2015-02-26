@@ -72,6 +72,7 @@ typedef struct round_t
 	int vpid;
 }round_t;
 
+round_t array[100][100];
 void tournament_barrier( int vpid, bool *sense, int num_rounds)
 {
 	int round = 1;
@@ -124,26 +125,28 @@ int main(int argc, char **argv)
 	omp_set_num_threads(thread_count);	
 	int num_rounds = ceil( log(thread_count)/log(2) );
 	printf("The total number of rounds, threads and barriers are %d, %d, %d respectively.",num_rounds, thread_count, barrier_count);
-	round_t array[thread_count][num_rounds];
+	//round_t array[thread_count][num_rounds];
 	int i,k;
 	for(i=0;i<thread_count;i++)
 	{
 		for(k=0;k< num_rounds;k++)
 		{
 			array[i][k].flag=0;
-			if( k>0 && i%(pow(2,k)==0 && (i+pow(2,k-1)) < thread_count && pow(2,k) < thread_count)
+			int first_check = ceil(pow(2,k-1));
+			int second_check = ceil(pow(2,k));
+			if( k>0 && i%(second_check)==0 && (i+first_check) < thread_count && second_check < thread_count)
 			{
 				array[i][k].role=winner;
 			}
-			if( k>0 && i%(pow(2,k)==0 && (i+pow(2,k-1)) > thread_count)
+			if( k>0 && i%second_check==0 && (i+first_check) > thread_count)
 			{
 				array[i][k].role=bye;
 			}
-			if( k>0 && i%(pow(2,k)== pow(2,k-1))
+			if( k>0 && i%(second_check)== first_check)
 			{
 				array[i][k].role=loser;
 			}
-			if( k>0 && i==0 && pow(2,k-1) > thread_count)
+			if( k>0 && i==0 && first_check > thread_count)
 			{
 				array[i][k].role=champion;
 			}
@@ -153,11 +156,11 @@ int main(int argc, char **argv)
 			}
 	
 			if(array[i][k].role == loser) {
-				array[i][k].opponent = &array[i-pow(2,k-1)][k].flag;
+				array[i][k].opponent = &array[i-first_check][k].flag;
 			}
 
 			if(array[i][k].role == winner || array[i][k].role == champion) {
-				array[i][k].opponent = &array[i+pow(2,k-1)][k].flag;
+				array[i][k].opponent = &array[i+first_check][k].flag;
 			}
 		}
 	}
@@ -166,14 +169,12 @@ int main(int argc, char **argv)
 	{
 		int vpid=0;
 		bool *sense;
-		#pragma omp critical
-		{
 		vpid = omp_get_thread_num();
-		sense = true;
-		}
+		bool temp = true;
+		sense = &temp;
 		int thread_num = omp_get_thread_num();
 		int i;
-	    	for( i = 0; i < num_barriers; i++ )
+	    	for( i = 0; i < barrier_count; i++ )
 		{
 			printf( "Thread Number: %d Ready.\n", thread_num);
 			printf("Thread %d is waiting at Barrier %d.\n",thread_num,i);
@@ -181,7 +182,7 @@ int main(int argc, char **argv)
 		  	printf("Thread %d left Barrier %d\n",thread_num,i);
 		}
 		gettimeofday(&end, NULL);
+		printf("%Total Time:    %ld\n", ((end.tv_sec * 1000000 + end.tv_usec)- (start.tv_sec * 1000000 + start.tv_usec)));
     	}
-    	printf( "Time spent in barrier by thread %d is %f\n", thread_num, time2-time1 );
 	return 0;
 }

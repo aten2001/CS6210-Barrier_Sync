@@ -3,12 +3,23 @@
 #include <stdlib.h>
 #include <math.h>
 
-int main (int argc, char * argv) {
-  MPI_Init(NULL, NULL);
+int main (int argc, char * argv[]) {
 
-  int size, rank, procs = 8, rounds = 3, barriers = 10;
+  if(argc!=3)
+  {
+    printf("Enter the number of threads and barriers.\n"); 
+    exit(0);
+  }
+  
+  MPI_Init(&argc, &argv);
+
+  int size, rank, procs, rounds, barriers;
   int i, j;
   int token = 0;
+
+  procs = atoi(argv[1]);
+  barriers = atoi(argv[2]);
+  rounds = ceil(log(procs)/log(2));
 
   MPI_Comm_rank(MPI_COMM_WORLD, &rank);
   MPI_Comm_size(MPI_COMM_WORLD, &size);
@@ -55,4 +66,5 @@ int main (int argc, char * argv) {
     }
     printf("Synchronized on barrier %d\n", i);
   }
+  MPI_Finalize();
 }

@@ -39,17 +39,21 @@ int main (int argc, char * argv[]) {
 
       //Positive  numbered processes wait for odd numbered processes
       if (rank % (int)pow(2, j+1) == 0) {
-        printf("Process %d waiting on process %d in round %d\n", rank, rank + (int)pow(2, j), (int)pow(2, j));
+
+        if ((rank + (int)pow(2, j)) >= procs)
+	  continue;
+
+ //       printf("Process %d waiting on process %d in round %d\n", rank, (rank + (int)pow(2, j)) % procs, (int)pow(2, j));
         while (!token) {
-          MPI_Recv(&token, 1, MPI_INT, rank + (int)pow(2, j), (int)pow(2, j), MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+          MPI_Recv(&token, 1, MPI_INT, (rank + (int)pow(2, j)) % procs, (int)pow(2, j), MPI_COMM_WORLD, MPI_STATUS_IGNORE);
         }
         token = 0;
       }
 
       else if (rank % (int)pow(2, j) == 0) {
    	token = 1;
-        printf("Process %d sending to %d in round %d\n", rank, rank - (int)pow(2, j), (int)pow(2, j));
-  	MPI_Send(&token, 1, MPI_INT, rank - (int)pow(2, j), (int)pow(2, j), MPI_COMM_WORLD);
+//        printf("Process %d sending to %d in round %d\n", rank, (rank - (int)pow(2, j)) % procs, (int)pow(2, j));
+  	MPI_Send(&token, 1, MPI_INT, (rank - (int)pow(2, j)) % procs, (int)pow(2, j), MPI_COMM_WORLD);
       }
     }
 
@@ -58,20 +62,26 @@ int main (int argc, char * argv[]) {
 
       //Positive  numbered processes wait for odd numbered processes
       if (rank % (int)pow(2, j+1) == 0) {
-        printf("Process %d waking up process %d in round %d\n", rank, rank + (int)pow(2, j), (int)pow(2, j));
+//        printf("Process %d waking up process %d in round %d\n", rank, (rank + (int)pow(2, j)) % procs, (int)pow(2, j));
         token = 0;
-        printf("Process %d sending to %d in round %d\n", rank, rank + (int)pow(2, j), (int)pow(2, j));
-  	MPI_Send(&token, 1, MPI_INT, rank + (int)pow(2, j), (int)pow(2, j), MPI_COMM_WORLD);
+//        printf("Process %d sending to %d in round %d\n", rank, (rank + (int)pow(2, j)) % procs, (int)pow(2, j));
+  	MPI_Send(&token, 1, MPI_INT, (rank + (int)pow(2, j)) % procs, (int)pow(2, j), MPI_COMM_WORLD);
       }
 
       else if (rank % (int)pow(2, j) == 0){
-        printf("Process %d waiting on process %d in round %d\n", rank, (rank - (int)pow(2, j)) % 8, (int)pow(2, j));
+
+        if ((rank - (int)pow(2, j)) < 0)
+	  continue;
+
+//        printf("Process %d waiting on process %d in round %d\n", rank, (rank - (int)pow(2, j)) % procs, (int)pow(2, j));
    	while (token) {
-          MPI_Recv(&token, 1, MPI_INT, (rank - (int)pow(2, j)) % 8, (int)pow(2, j), MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+          MPI_Recv(&token, 1, MPI_INT, (rank - (int)pow(2, j)) % procs, (int)pow(2, j), MPI_COMM_WORLD, MPI_STATUS_IGNORE);
         }
       }
     }
-    printf("Synchronized on barrier %d\n", i);
+
+    if (rank == 0)
+      printf("Synchronized on barrier %d\n", i);
   }
 
   MPI_Barrier(MPI_COMM_WORLD); /* IMPORTANT */

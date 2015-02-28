@@ -2,16 +2,23 @@
 #include <mpi.h>
 #include <stdlib.h>
 #include <math.h>
+#include <sys/time.h>
 
 int main (int argc, char * argv[]) {
+
+  double start, end, minStart = 999999999999, maxEnd = 0;
+  double *allStart, *allEnd;
 
   if(argc!=3)
   {
     printf("Enter the number of threads and barriers.\n"); 
     exit(0);
-  }
+  }  
   
   MPI_Init(&argc, &argv);
+
+  MPI_Barrier(MPI_COMM_WORLD); /* IMPORTANT */
+  start = MPI_Wtime();
 
   int size, rank, procs, rounds, barriers;
   int i, j;
@@ -66,5 +73,27 @@ int main (int argc, char * argv[]) {
     }
     printf("Synchronized on barrier %d\n", i);
   }
+
+  MPI_Barrier(MPI_COMM_WORLD); /* IMPORTANT */
+  end = MPI_Wtime();
+
+  allStart = (double *)malloc(size*sizeof(double));
+  allEnd = (double *)malloc(size*sizeof(double));
+
+  MPI_Gather(&start, 1, MPI_DOUBLE, allStart, 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);
+  MPI_Gather(&end, 1, MPI_DOUBLE, allEnd, 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);
+
+  if(rank == 0) {
+    for(i = 0; i < size; i++) {
+      if (*(allStart + i) < minStart)
+        minStart = *(allStart + i);
+      if (*(allEnd + i) > maxEnd)
+        maxEnd = *(allEnd + i);      
+    }
+    printf("Total time = %f\n", maxEnd - minStart);
+  }
+
   MPI_Finalize();
+  
+  return 0;
 }

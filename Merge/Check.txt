@@ -1,0 +1,200 @@
+[START] Process Id: 2
+Thread Number: 7 Ready.
+Thread 1 is waiting at Tournament Barrier OMP 1.
+Thread Number: 4 Ready.
+Thread 1 is waiting at Tournament Barrier OMP 1.
+Thread Number: 2 Ready.
+Thread 1 is waiting at Tournament Barrier OMP 1.
+Thread Number: 3 Ready.
+Thread 1 is waiting at Tournament Barrier OMP 1.
+Thread Number: 1 Ready.
+Thread 1 is waiting at Tournament Barrier OMP 1.
+Thread Number: 6 Ready.
+Thread 1 is waiting at Tournament Barrier OMP 1.
+Thread Number: 0 Ready.
+Thread 1 is waiting at Tournament Barrier OMP 1.
+Thread Number: 5 Ready.
+Thread 1 is waiting at Tournament Barrier OMP 1.
+Thread 1 left Tournament Barrier OMP 1.
+Thread 1 left Tournament Barrier OMP 1.
+[START] Process Id: 6
+Thread 1 left Tournament Barrier OMP 1.
+Thread 1 left Tournament Barrier OMP 1.
+[START] Process Id: 3
+[START] Process Id: 4
+Thread 1 left Tournament Barrier OMP 1.
+Thread Number: 3 Ready.
+Thread 4 is waiting at Tournament Barrier OMP 1.
+Thread 1 left Tournament Barrier OMP 1.
+Thread 1 left Tournament Barrier OMP 1.
+Thread Number: 7 Ready.
+Thread Number: 6 Ready.
+Thread 4 is waiting at Tournament Barrier OMP 1.
+Thread Number: 1 Ready.
+Thread 4 is waiting at Tournament Barrier OMP 1.
+Thread Number: 5 Ready.
+Thread 4 is waiting at Tournament Barrier OMP 1.
+Thread Number: 0 Ready.
+Thread 4 is waiting at Tournament Barrier OMP 1.
+Thread Number: 2 Ready.
+Thread 4 is waiting at Tournament Barrier OMP 1.
+Thread Number: 4 Ready.
+Thread 4 is waiting at Tournament Barrier OMP 1.
+Thread Number: 7 Ready.
+Thread 4 is waiting at Tournament Barrier OMP 1.
+Thread Number: 7 Ready.
+Thread 1 is waiting at Tournament Barrier OMP 1.
+Thread Number: 2 Ready.
+Thread 1 is waiting at Tournament Barrier OMP 1.
+Thread Number: 6 Ready.
+Thread 1 is waiting at Tournament Barrier OMP 1.
+Thread Number: 0 Ready.
+Thread 1 is waiting at Tournament Barrier OMP 1.
+Thread Number: 1 Ready.
+Thread 1 is waiting at Tournament Barrier OMP 1.
+Thread Number: 3 Ready.
+Thread 1 is waiting at Tournament Barrier OMP 1.
+Thread Number: 5 Ready.
+Thread 1 is waiting at Tournament Barrier OMP 1.
+Thread Number: 4 Ready.
+Thread 1 is waiting at Tournament Barrier OMP 1.
+Thread 1 left Tournament Barrier OMP 1.
+Thread 1 left Tournament Barrier OMP 1.
+Thread 1 left Tournament Barrier OMP 1.
+[START] Process Id: 5
+Thread 3 is waiting at Tournament Barrier OMP 1.
+Thread Number: 5 Ready.
+Thread 3 is waiting at Tournament Barrier OMP 1.
+Thread Number: 6 Ready.
+Thread 3 is waiting at Tournament Barrier OMP 1.
+Thread Number: 0 Ready.
+Thread 3 is waiting at Tournament Barrier OMP 1.
+Thread Number: 4 Ready.
+Thread 3 is waiting at Tournament Barrier OMP 1.
+Thread 3 left Tournament Barrier OMP 1.
+Thread Number: 2 Ready.
+Thread 3 is waiting at Tournament Barrier OMP 1.
+Thread Number: 3 Ready.
+Thread 3 is waiting at Tournament Barrier OMP 1.
+Thread 3 left Tournament Barrier OMP 1.
+[START] Process Id: 7
+Thread Number: 7 Ready.
+Thread 0 is waiting at Tournament Barrier OMP 1.
+Thread Number: 1 Ready.
+Thread 0 is waiting at Tournament Barrier OMP 1.
+Thread Number: 5 Ready.
+Thread 0 is waiting at Tournament Barrier OMP 1.
+Thread Number: 2 Ready.
+Thread 0 is waiting at Tournament Barrier OMP 1.
+Thread 4 left Tournament Barrier OMP 1.
+Thread 4 left Tournament Barrier OMP 1.
+Thread 4 left Tournament Barrier OMP 1.
+Thread Number: 3 Ready.
+Thread 0 is waiting at Tournament Barrier OMP 1.
+Thread Number: 6 Ready.
+Thread 0 is waiting at Tournament Barrier OMP 1.
+Thread Number: 4 Ready.
+Thread 0 is waiting at Tournament Barrier OMP 1.
+Thread 0 left Tournament Barrier OMP 1.
+Thread 3 left Tournament Barrier OMP 1.
+Thread 4 left Tournament Barrier OMP 1.
+Thread Number: 0 Ready.
+Thread 0 is waiting at Tournament Barrier OMP 1.
+[START] Process Id: 0
+Thread 3 left Tournament Barrier OMP 1.
+Thread 4 left Tournament Barrier OMP 1.
+Thread Number: 1 Ready.
+Thread Number: 7 Ready.
+Thread 1 left Tournament Barrier OMP 1.
+Thread 1 is waiting at Tournament Barrier OMP 1.
+Thread 4 left Tournament Barrier OMP 1.
+Thread 3 is waiting at Tournament Barrier OMP 1.
+Thread Number: 2 Ready.
+Thread 3 is waiting at Tournament Barrier OMP 1.
+Thread Number: 5 Ready.
+Thread 3 is waiting at Tournament Barrier OMP 1.
+Thread Number: 0 Ready.
+Thread 3 is waiting at Tournament Barrier OMP 1.
+Thread Number: 3 Ready.
+Thread 3 is waiting at Tournament Barrier OMP 1.
+Thread Number: 6 Ready.
+Thread 3 is waiting at Tournament Barrier OMP 1.
+Thread Number: 1 Ready.
+Thread 3 is waiting at Tournament Barrier OMP 1.
+Thread Number: 4 Ready.
+Thread 3 is waiting at Tournament Barrier OMP 1.
+Thread 3 left Tournament Barrier OMP 1.
+Thread 3 left Tournament Barrier OMP 1.
+Thread 3 left Tournament Barrier OMP 1.
+Thread 0 left Tournament Barrier OMP 1.
+Thread Number: 7 Ready.
+Thread 0 is waiting at Tournament Barrier OMP 1.
+Thread 4 left Tournament Barrier OMP 1.
+Thread 4 left Tournament Barrier OMP 1.
+Thread 3 left Tournament Barrier OMP 1.
+Thread Number: 3 Ready.
+Thread 0 is waiting at Tournament Barrier OMP 1.
+Thread Number: 1 Ready.
+Thread 0 is waiting at Tournament Barrier OMP 1.
+Thread Number: 6 Ready.
+Thread 0 is waiting at Tournament Barrier OMP 1.
+Thread Number: 0 Ready.
+Thread 0 is waiting at Tournament Barrier OMP 1.
+Thread Number: 4 Ready.
+Thread 0 is waiting at Tournament Barrier OMP 1.
+Thread Number: 5 Ready.
+Thread 0 is waiting at Tournament Barrier OMP 1.
+Thread Number: 2 Ready.
+Thread 0 is waiting at Tournament Barrier OMP 1.
+Thread 1 left Tournament Barrier OMP 1.
+Thread 0 left Tournament Barrier OMP 1.
+Thread 0 left Tournament Barrier OMP 1.
+Thread 3 left Tournament Barrier OMP 1.
+Thread 3 left Tournament Barrier OMP 1.
+Thread 0 left Tournament Barrier OMP 1.
+Thread 1 left Tournament Barrier OMP 1.
+Thread 3 left Tournament Barrier OMP 1.
+Thread 3 left Tournament Barrier OMP 1.
+Thread 0 left Tournament Barrier OMP 1.
+Thread 0 left Tournament Barrier OMP 1.
+Thread 0 left Tournament Barrier OMP 1.
+Thread 0 left Tournament Barrier OMP 1.
+Thread 0 left Tournament Barrier OMP 1.
+Thread 1 left Tournament Barrier OMP 1.
+Thread 0 left Tournament Barrier OMP 1.
+Thread 1 left Tournament Barrier OMP 1.
+Thread 1 left Tournament Barrier OMP 1.
+Thread 0 left Tournament Barrier OMP 1.
+Thread 0 left Tournament Barrier OMP 1.
+Thread 0 left Tournament Barrier OMP 1.
+Thread 0 left Tournament Barrier OMP 1.
+Thread 0 left Tournament Barrier OMP 1.
+Thread 1 left Tournament Barrier OMP 1.
+Thread 1 left Tournament Barrier OMP 1.
+Thread 1 left Tournament Barrier OMP 1.
+Thread 1 left Tournament Barrier OMP 1.
+[START] Process Id: 1
+Thread Number: 7 Ready.
+Thread 1 is waiting at Tournament Barrier OMP 1.
+Thread Number: 3 Ready.
+Thread 1 is waiting at Tournament Barrier OMP 1.
+Thread Number: 6 Ready.
+Thread 1 is waiting at Tournament Barrier OMP 1.
+Thread Number: 5 Ready.
+Thread 1 is waiting at Tournament Barrier OMP 1.
+Thread Number: 0 Ready.
+Thread 1 is waiting at Tournament Barrier OMP 1.
+Thread Number: 4 Ready.
+Thread 1 is waiting at Tournament Barrier OMP 1.
+Thread 1 left Tournament Barrier OMP 1.
+Thread Number: 2 Ready.
+Thread 1 is waiting at Tournament Barrier OMP 1.
+Thread Number: 1 Ready.
+Thread 1 is waiting at Tournament Barrier OMP 1.
+Thread 1 left Tournament Barrier OMP 1.
+Thread 1 left Tournament Barrier OMP 1.
+Thread 1 left Tournament Barrier OMP 1.
+Thread 1 left Tournament Barrier OMP 1.
+Thread 1 left Tournament Barrier OMP 1.
+Thread 1 left Tournament Barrier OMP 1.
+Thread 1 left Tournament Barrier OMP 1.

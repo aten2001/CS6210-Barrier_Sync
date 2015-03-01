@@ -28,7 +28,7 @@ int main(int argc, char **argv)
 	gettimeofday(&start, NULL);
   	for (i = 0; i < 10; i++)
 	{
-		printf("Thread %d is waiting at the Barrier %d\n", rank,i);
+		printf("Thread %d is waiting at the Barrier &d\n", rank,i);
   		lock = 0;
   		//Decrement count and broadcast the value
   		MPI_Bcast(&count, 1, MPI_INT, 0, MPI_COMM_WORLD);

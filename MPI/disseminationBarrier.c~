@@ -17,13 +17,15 @@ int main (int argc, char * argv[]) {
   
   MPI_Init(&argc, &argv);
 
+  //Using MPI provided barrier o synchronize all processes before starting the time to calculate total running time.
   MPI_Barrier(MPI_COMM_WORLD); /* IMPORTANT */
   start = MPI_Wtime();
 
   int size, rank, procs, rounds, barriers;
   int i, j;
-  int token = 0;
-
+  int token;
+  int prevInRound, nextInRound;
+  
   procs = atoi(argv[1]);
   barriers = atoi(argv[2]);
   rounds = ceil(log(procs)/log(2));
@@ -32,56 +34,37 @@ int main (int argc, char * argv[]) {
   MPI_Comm_size(MPI_COMM_WORLD, &size);
 
   for (i = 0; i < barriers; i++) {
-    printf("Process %d on barrier %d\n", rank, i);
+    printf("Process %d on barrier %d\n", rank , i);
 
     //Synchronization rounds
     for (j = 0; j < rounds; j++) {
 
-      //Positive  numbered processes wait for odd numbered processes
-      if (rank % (int)pow(2, j+1) == 0) {
+      prevInRound = (rank - (int)pow(2, j));
+      nextInRound = ((rank + (int)pow(2, j)) % procs);
 
-        if ((rank + (int)pow(2, j)) >= procs)
-	  continue;
-
-        while (!token) {
-          MPI_Recv(&token, 1, MPI_INT, (rank + (int)pow(2, j)) % procs, (int)pow(2, j), MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-        }
-        token = 0;
+      if (prevInRound < 0) {
+        prevInRound = procs + prevInRound;
       }
 
-      else if (rank % (int)pow(2, j) == 0) {
-   	token = 1;
+      //Send first to ensure that not all processes end up in a deadlock waiting
 
-  	MPI_Send(&token, 1, MPI_INT, (rank - (int)pow(2, j)) % procs, (int)pow(2, j), MPI_COMM_WORLD);
-      }
-    }
+      token = rank;      
+      //printf("Process %d sending to process %d for round %d\n", rank, nextInRound, j);
+      MPI_Send(&token, 1, MPI_INT, nextInRound, (int)pow(2, j), MPI_COMM_WORLD);
 
-    //Wake up rounds
-    for (j = rounds-1; j >= 0; j--) {
-
-      //Positive  numbered processes wait for odd numbered processes
-      if (rank % (int)pow(2, j+1) == 0) {
-
-        token = 0;
-
-  	MPI_Send(&token, 1, MPI_INT, (rank + (int)pow(2, j)) % procs, (int)pow(2, j), MPI_COMM_WORLD);
-      }
-
-      else if (rank % (int)pow(2, j) == 0){
-
-        if ((rank - (int)pow(2, j)) < 0)
-	  continue;
-
-   	while (token) {
-          MPI_Recv(&token, 1, MPI_INT, (rank - (int)pow(2, j)) % procs, (int)pow(2, j), MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-        }
+      token = 999;
+      //printf("Process %d waiting to receive from process %d for round %d\n", rank, prevInRound, j);
+      
+      while (token != prevInRound) {
+        MPI_Recv(&token, 1, MPI_INT, prevInRound, (int)pow(2, j), MPI_COMM_WORLD, MPI_STATUS_IGNORE);
       }
     }
 
-    if (rank == 0)
+   // if (rank == 0)
       printf("Synchronized on barrier %d\n", i);
   }
 
+  //Using the MPI provided barrier to synchronize all processes to estimate running time
   MPI_Barrier(MPI_COMM_WORLD); /* IMPORTANT */
   end = MPI_Wtime();
 

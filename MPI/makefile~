@@ -1,4 +1,4 @@
-EXECS=tournamentBarrier disseminationBarrier
+EXECS=senseBarrier tournamentBarrier
 MPICC?=mpicc
 
 all: ${EXECS}

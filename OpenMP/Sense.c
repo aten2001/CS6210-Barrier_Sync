@@ -1,4 +1,5 @@
 #include <omp.h>
+#include<stdlib.h>
 #include <stdio.h>
 #include <sys/time.h>
 int max;

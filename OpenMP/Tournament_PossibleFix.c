@@ -69,7 +69,6 @@ typedef struct round_t
 	int role;
 	bool *opponent;
 	bool flag;
-	int vpid;
 }round_t;
 
 round_t array[100][100];

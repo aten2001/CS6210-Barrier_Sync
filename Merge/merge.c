@@ -188,12 +188,12 @@ int main(int argc, char **argv)
 		int num_threads = omp_get_num_threads();
 	 	int i,j;
 		int thread_num = omp_get_thread_num();
-		printf( "Thread Number: %d Ready.\n", vpid);
+		printf( "Thread Number: %d Process: %d Ready.\n", vpid,my_id);
 		for( i = 0; i < barrier_count; i++ )
 		{
-			printf("Thread %d is waiting at Barrier %d.\n",vpid,i+1);
+			printf("Thread: %d Process: %d is waiting at Barrier %d.\n",vpid,my_id,i+1);
 			tournament_barrier(vpid,sense,num_rounds);
-			printf("Thread %d left Barrier %d.\n",vpid,i+1);
+			printf("Thread: %d Process: %d left Barrier %d.\n",vpid,my_id,i+1);
 	    	}
 	}
 	central_barrier(my_id,num_processes);

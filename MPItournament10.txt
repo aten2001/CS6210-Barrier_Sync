@@ -1,3 +1,4 @@
+2 processes 10 barriers
 Total time = 0.001688
 Total time = 0.001296
 Total time = 0.001295
@@ -10,6 +11,8 @@ Total time = 0.001399
 Total time = 0.001288
 Total time = 0.001532
 Total time = 0.001681
+
+5 processes 10 barriers
 Total time = 0.003051
 Total time = 0.002465
 Total time = 0.003008
@@ -22,6 +25,8 @@ Total time = 0.003233
 Total time = 0.002610
 Total time = 0.002781
 Total time = 0.002610
+
+8 processes 10 barriers
 Total time = 0.002739
 Total time = 0.003021
 Total time = 0.002771
@@ -34,6 +39,8 @@ Total time = 0.003001
 Total time = 0.002500
 Total time = 0.003097
 Total time = 0.003035
+
+12 processes 10 barriers
 Total time = 0.002553
 Total time = 0.002862
 Total time = 0.003713

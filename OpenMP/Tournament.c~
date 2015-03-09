@@ -69,7 +69,6 @@ typedef struct round_t
 	int role;
 	bool *opponent;
 	bool flag;
-	int vpid;
 }round_t;
 
 round_t array[100][100];
@@ -96,7 +95,7 @@ void tournament_barrier( int vpid, bool *sense, int num_rounds)
 		}
 		round = round + 1;
 	}
-	while(round>0)
+	while(round>=0)
 	{
 		round = round - 1;
 		if( array[vpid][round].role == winner )
@@ -127,18 +126,25 @@ int main(int argc, char **argv)
 	printf("The total number of rounds, threads and barriers are %d, %d, %d respectively.\n",num_rounds, thread_count, barrier_count);
 	//round_t array[thread_count][num_rounds];
 	int i,k;
+
 	for(i=0;i<thread_count;i++)
 	{
 		for(k=0;k< num_rounds;k++)
 		{
 			array[i][k].flag=0;
-			int first_check = ceil(pow(2,k-1));
-			int second_check = ceil(pow(2,k));
+		}
+	}
+	for(i=0;i<thread_count;i++)
+	{
+		for(k=0;k< num_rounds;k++)
+		{
+			int first_check = pow(2,k-1);
+			int second_check = pow(2,k);
 			if( k>0 && i%(second_check)==0 && (i+first_check) < thread_count && second_check < thread_count)
 			{
 				array[i][k].role=winner;
 			}
-			if( k>0 && i%second_check==0 && (i+first_check) > thread_count)
+			if( k>0 && i%(second_check)==0 && (i+first_check) >= thread_count)
 			{
 				array[i][k].role=bye;
 			}
@@ -146,7 +152,7 @@ int main(int argc, char **argv)
 			{
 				array[i][k].role=loser;
 			}
-			if( k>0 && i==0 && first_check > thread_count)
+			if( k>0 && i==0 && first_check >= thread_count)
 			{
 				array[i][k].role=champion;
 			}
@@ -172,17 +178,16 @@ int main(int argc, char **argv)
 		vpid = omp_get_thread_num();
 		bool temp = true;
 		sense = &temp;
-		int thread_num = omp_get_thread_num();
 		int i;
-		printf( "Thread Number: %d Ready.\n", thread_num);
+		printf( "Thread Number: %d Ready.\n", vpid);
 	    	for( i = 0; i < barrier_count; i++ )
 		{
-			printf("Thread %d is waiting at Barrier %d.\n",thread_num,i+1);
+			printf("Thread %d is waiting at Barrier %d.\n",vpid,i+1);
 			tournament_barrier(vpid, sense, num_rounds);
-		  	printf("Thread %d left Barrier %d.\n",thread_num,i+1);
+		  	printf("Thread %d left Barrier %d.\n",vpid,i+1);
 		}
     	}
 	gettimeofday(&end, NULL);
-	printf("%Total Time:    %ld\n", ((end.tv_sec * 1000000 + end.tv_usec)- (start.tv_sec * 1000000 + start.tv_usec)));
+	printf("Total Time:    %ld\n", ((end.tv_sec * 1000000 + end.tv_usec)- (start.tv_sec * 1000000 + start.tv_usec)));
 	return 0;
 }

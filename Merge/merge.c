@@ -147,7 +147,6 @@ int main(int argc, char **argv)
 		}
 	}
 	gettimeofday(&start, NULL);
-	int thread_num;
 	#pragma omp parallel num_threads(thread_count) shared(array)
 	{
 		int vpid=0;

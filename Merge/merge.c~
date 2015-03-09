@@ -147,16 +147,16 @@ int main(int argc, char **argv)
 		}
 	}
 	gettimeofday(&start, NULL);
-	int thread_num;
+	int vpid=0;
 	#pragma omp parallel num_threads(thread_count) shared(array)
 	{
-		int vpid=0;
+
 		bool *sense;
 		vpid = omp_get_thread_num();
 		bool temp = true;
 		sense = &temp;
 		int i;
-		printf( "Thread Number: %d Process ID: %d Ready.\n", thread_num, my_id);
+		printf( "Thread Number: %d Process ID: %d Ready.\n", vpid, my_id);
 		for(i=0; i< barrier_count; i++)
 		{
 			printf("Thread: %d Process ID: %d is waiting at Tournament Barrier OMP %d.\n",vpid,my_id,i+1);

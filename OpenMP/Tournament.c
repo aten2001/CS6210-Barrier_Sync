@@ -172,14 +172,13 @@ int main(int argc, char **argv)
 		vpid = omp_get_thread_num();
 		bool temp = true;
 		sense = &temp;
-		int thread_num = omp_get_thread_num();
 		int i;
-		printf( "Thread Number: %d Ready.\n", thread_num);
+		printf( "Thread Number: %d Ready.\n", vpid);
 	    	for( i = 0; i < barrier_count; i++ )
 		{
-			printf("Thread %d is waiting at Barrier %d.\n",thread_num,i+1);
+			printf("Thread %d is waiting at Barrier %d.\n",vpid,i+1);
 			tournament_barrier(vpid, sense, num_rounds);
-		  	printf("Thread %d left Barrier %d.\n",thread_num,i+1);
+		  	printf("Thread %d left Barrier %d.\n",vpid,i+1);
 		}
     	}
 	gettimeofday(&end, NULL);

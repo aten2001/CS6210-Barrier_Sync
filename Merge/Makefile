@@ -12,7 +12,6 @@ CFLAGS = -I$(MPICH)
 
 merge: merge.c
 	$(MPICC) -o $@ $^ $(LDLIBS) $(OMPLIBS) $(OMPFLAGS) -DGIMP_DISABLE_DEPRECATED /lib64/libm.so.6
-
 clean:
 	rm -f *.o merge
 

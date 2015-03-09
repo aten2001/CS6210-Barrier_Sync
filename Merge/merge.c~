@@ -147,7 +147,6 @@ int main(int argc, char **argv)
 		}
 	}
 	gettimeofday(&start, NULL);
-	int j;
 	int thread_num;
 	#pragma omp parallel num_threads(thread_count) shared(array)
 	{
@@ -157,16 +156,15 @@ int main(int argc, char **argv)
 		bool temp = true;
 		sense = &temp;
 		int i;
-		thread_num = omp_get_thread_num();
 		printf( "Thread Number: %d Process ID: %d Ready.\n", thread_num, my_id);
 		for(i=0; i< barrier_count; i++)
 		{
-			printf("Thread: %d Process ID: %d is waiting at Tournament Barrier OMP %d.\n",thread_num,my_id,i+1);
+			printf("Thread: %d Process ID: %d is waiting at Tournament Barrier OMP %d.\n",vpid,my_id,i+1);
 			tournament_barrier(vpid, sense, num_rounds);
-			printf("Thread: %d Process ID: %d left Tournament Barrier OMP %d.\n",thread_num,my_id,i+1);
+			printf("Thread: %d Process ID: %d left Tournament Barrier OMP %d.\n",vpid,my_id,i+1);
 		}
-	   }
-	//central_barrier(my_id,num_processes);
+	}
+	central_barrier(my_id,num_processes);
 	printf("Process %d left Central Barrier MPI.\n",my_id);
 	gettimeofday(&end, NULL);
 	printf("Total Time:    %ld\n", ((end.tv_sec * 1000000 + end.tv_usec)- (start.tv_sec * 1000000 + start.tv_usec)));

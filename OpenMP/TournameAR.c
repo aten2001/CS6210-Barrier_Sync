@@ -69,6 +69,7 @@ typedef struct round_t
 	int role;
 	bool *opponent;
 	bool flag;
+	int vpid;
 }round_t;
 
 round_t array[100][100];
@@ -77,6 +78,7 @@ void tournament_barrier( int vpid, bool *sense, int num_rounds)
 	int round = 1;
 	while(round<num_rounds)
 	{
+     		printf("Round %d process %d flag %d opponent %d\n", round, vpid, array[vpid][round].flag, *(array[vpid][round]).opponent);
 		if(array[vpid][round].role == loser)
 		{
 			*( array[vpid][round] ).opponent = *sense;
@@ -95,7 +97,6 @@ void tournament_barrier( int vpid, bool *sense, int num_rounds)
 		}
 		round = round + 1;
 	}
-	round-=1;
 	while(round>0)
 	{
 		round = round - 1;
@@ -127,48 +128,47 @@ int main(int argc, char **argv)
 	printf("The total number of rounds, threads and barriers are %d, %d, %d respectively.\n",num_rounds, thread_count, barrier_count);
 	//round_t array[thread_count][num_rounds];
 	int i,k;
-
 	for(i=0;i<thread_count;i++)
 	{
 		for(k=0;k< num_rounds;k++)
 		{
 			array[i][k].flag=0;
-		}
-	}
-	for(i=0;i<thread_count;i++)
-	{
-		for(k=0;k< num_rounds;k++)
-		{
 			int first_check = ceil(pow(2,k-1));
 			int second_check = ceil(pow(2,k));
 			if( k>0 && i%(second_check)==0 && (i+first_check) < thread_count && second_check < thread_count)
 			{
 				array[i][k].role=winner;
+				array[i][k].opponent = &array[i+first_check][k].flag;
+               			printf("Opponent %d\n", i+first_check);
 			}
-			if( k>0 && i%(second_check)==0 && (i+first_check) >= thread_count)
+			else if( k>0 && i%second_check==0 && (i+first_check) >= thread_count)
 			{
 				array[i][k].role=bye;
 			}
-			if( k>0 && i%(second_check)== first_check)
+			else if( k>0 && i%(second_check)== first_check)
 			{
 				array[i][k].role=loser;
-			}
-			if( k>0 && i==0 && first_check >= thread_count)
+				array[i][k].opponent = &array[i-first_check][k].flag;
+               			printf("Opponent %d\n", i-first_check);
+			else if( k>0 && i==0 && first_check >= thread_count)
 			{
 				array[i][k].role=champion;
+				array[i][k].opponent = &array[i+first_check][k].flag;
+               			printf("Opponent %d\n", i+first_check);
 			}
-			if(k==0)
+			else if(k==0)
 			{
 				array[i][k].role=dropout;
 			}
 	
-			if(array[i][k].role == loser) {
-				array[i][k].opponent = &array[i-first_check][k].flag;
+			/*if(array[i][k].role == loser) {
+				
 			}
 
-			if(array[i][k].role == winner || array[i][k].role == champion) {
-				array[i][k].opponent = &array[i+first_check][k].flag;
-			}
+			else if(array[i][k].role == winner || array[i][k].role == champion) {
+				
+			}*/
+			printf("Process %d Round %d Role %d\n", i, k, array[i][k].role);
 		}
 	}
 	gettimeofday(&start, NULL);
@@ -183,7 +183,7 @@ int main(int argc, char **argv)
 		printf( "Thread Number: %d Ready.\n", vpid);
 	    	for( i = 0; i < barrier_count; i++ )
 		{
-			printf("Thread %d is waiting at Barrier %d.\n",vpid,i+1);
+			//printf("Thread %d is waiting at Barrier %d.\n",vpid,i+1);
 			tournament_barrier(vpid, sense, num_rounds);
 		  	printf("Thread %d left Barrier %d.\n",vpid,i+1);
 		}

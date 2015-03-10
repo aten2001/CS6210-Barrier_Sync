@@ -1,0 +1,182 @@
+Adding user hchawla7 to group authjobs
+[START] Process Id: 0
+Thread Number: 0 Process: 0 Ready.
+Thread: 0 Process: 0 is waiting at Barrier 1.
+Thread Number: 1 Process: 0 Ready.
+Thread: 1 Process: 0 is waiting at Barrier 1.
+Thread: 0 Process: 0 left Barrier 1.
+Thread: 0 Process: 0 is waiting at Barrier 2.
+Thread: 1 Process: 0 left Barrier 1.
+Thread: 1 Process: 0 is waiting at Barrier 2.
+Thread: 0 Process: 0 left Barrier 2.
+Thread: 0 Process: 0 is waiting at Barrier 3.
+Thread: 1 Process: 0 left Barrier 2.
+Thread: 1 Process: 0 is waiting at Barrier 3.
+Thread: 0 Process: 0 left Barrier 3.
+Thread: 0 Process: 0 is waiting at Barrier 4.
+Thread: 1 Process: 0 left Barrier 3.
+Thread: 1 Process: 0 is waiting at Barrier 4.
+Thread: 0 Process: 0 left Barrier 4.
+Thread: 0 Process: 0 is waiting at Barrier 5.
+Thread: 1 Process: 0 left Barrier 4.
+Thread: 1 Process: 0 is waiting at Barrier 5.
+Thread: 0 Process: 0 left Barrier 5.
+Thread: 0 Process: 0 is waiting at Barrier 6.
+Thread: 1 Process: 0 left Barrier 5.
+Thread: 1 Process: 0 is waiting at Barrier 6.
+Thread: 0 Process: 0 left Barrier 6.
+Thread: 0 Process: 0 is waiting at Barrier 7.
+Thread: 1 Process: 0 left Barrier 6.
+Thread: 1 Process: 0 is waiting at Barrier 7.
+Thread: 0 Process: 0 left Barrier 7.
+Thread: 0 Process: 0 is waiting at Barrier 8.
+Thread: 1 Process: 0 left Barrier 7.
+Thread: 1 Process: 0 is waiting at Barrier 8.
+Thread: 0 Process: 0 left Barrier 8.
+Thread: 0 Process: 0 is waiting at Barrier 9.
+Thread: 1 Process: 0 left Barrier 8.
+Thread: 1 Process: 0 is waiting at Barrier 9.
+Thread: 0 Process: 0 left Barrier 9.
+Thread: 0 Process: 0 is waiting at Barrier 10.
+Thread: 1 Process: 0 left Barrier 9.
+Thread: 1 Process: 0 is waiting at Barrier 10.
+Thread: 0 Process: 0 left Barrier 10.
+Thread: 1 Process: 0 left Barrier 10.
+[START] Process Id: 2
+Thread Number: 1 Process: 2 Ready.
+Thread: 1 Process: 2 is waiting at Barrier 1.
+Thread Number: 0 Process: 2 Ready.
+Thread: 0 Process: 2 is waiting at Barrier 1.
+Thread: 0 Process: 2 left Barrier 1.
+Thread: 0 Process: 2 is waiting at Barrier 2.
+Thread: 1 Process: 2 left Barrier 1.
+Thread: 1 Process: 2 is waiting at Barrier 2.
+Thread: 1 Process: 2 left Barrier 2.
+Thread: 1 Process: 2 is waiting at Barrier 3.
+Thread: 0 Process: 2 left Barrier 2.
+Thread: 0 Process: 2 is waiting at Barrier 3.
+Thread: 0 Process: 2 left Barrier 3.
+Thread: 0 Process: 2 is waiting at Barrier 4.
+Thread: 1 Process: 2 left Barrier 3.
+Thread: 1 Process: 2 is waiting at Barrier 4.
+Thread: 0 Process: 2 left Barrier 4.
+Thread: 0 Process: 2 is waiting at Barrier 5.
+Thread: 1 Process: 2 left Barrier 4.
+Thread: 1 Process: 2 is waiting at Barrier 5.
+Thread: 0 Process: 2 left Barrier 5.
+Thread: 0 Process: 2 is waiting at Barrier 6.
+Thread: 1 Process: 2 left Barrier 5.
+Thread: 1 Process: 2 is waiting at Barrier 6.
+Thread: 0 Process: 2 left Barrier 6.
+Thread: 0 Process: 2 is waiting at Barrier 7.
+Thread: 1 Process: 2 left Barrier 6.
+Thread: 1 Process: 2 is waiting at Barrier 7.
+Thread: 0 Process: 2 left Barrier 7.
+Thread: 0 Process: 2 is waiting at Barrier 8.
+Thread: 1 Process: 2 left Barrier 7.
+Thread: 1 Process: 2 is waiting at Barrier 8.
+Thread: 0 Process: 2 left Barrier 8.
+Thread: 0 Process: 2 is waiting at Barrier 9.
+Thread: 1 Process: 2 left Barrier 8.
+Thread: 1 Process: 2 is waiting at Barrier 9.
+Thread: 0 Process: 2 left Barrier 9.
+Thread: 0 Process: 2 is waiting at Barrier 10.
+Thread: 1 Process: 2 left Barrier 9.
+Thread: 1 Process: 2 is waiting at Barrier 10.
+Thread: 0 Process: 2 left Barrier 10.
+Thread: 1 Process: 2 left Barrier 10.
+[START] Process Id: 3
+Thread Number: 0 Process: 3 Ready.
+Thread: 0 Process: 3 is waiting at Barrier 1.
+Thread Number: 1 Process: 3 Ready.
+Thread: 1 Process: 3 is waiting at Barrier 1.
+Thread: 0 Process: 3 left Barrier 1.
+Thread: 0 Process: 3 is waiting at Barrier 2.
+Thread: 1 Process: 3 left Barrier 1.
+Thread: 1 Process: 3 is waiting at Barrier 2.
+Thread: 0 Process: 3 left Barrier 2.
+Thread: 0 Process: 3 is waiting at Barrier 3.
+Thread: 1 Process: 3 left Barrier 2.
+Thread: 1 Process: 3 is waiting at Barrier 3.
+Thread: 0 Process: 3 left Barrier 3.
+Thread: 0 Process: 3 is waiting at Barrier 4.
+Thread: 1 Process: 3 left Barrier 3.
+Thread: 1 Process: 3 is waiting at Barrier 4.
+Thread: 0 Process: 3 left Barrier 4.
+Thread: 0 Process: 3 is waiting at Barrier 5.
+Thread: 1 Process: 3 left Barrier 4.
+Thread: 1 Process: 3 is waiting at Barrier 5.
+Thread: 0 Process: 3 left Barrier 5.
+Thread: 0 Process: 3 is waiting at Barrier 6.
+Thread: 1 Process: 3 left Barrier 5.
+Thread: 1 Process: 3 is waiting at Barrier 6.
+Thread: 0 Process: 3 left Barrier 6.
+Thread: 0 Process: 3 is waiting at Barrier 7.
+Thread: 1 Process: 3 left Barrier 6.
+Thread: 1 Process: 3 is waiting at Barrier 7.
+Thread: 0 Process: 3 left Barrier 7.
+Thread: 0 Process: 3 is waiting at Barrier 8.
+Thread: 1 Process: 3 left Barrier 7.
+Thread: 1 Process: 3 is waiting at Barrier 8.
+Thread: 0 Process: 3 left Barrier 8.
+Thread: 0 Process: 3 is waiting at Barrier 9.
+Thread: 1 Process: 3 left Barrier 8.
+Thread: 1 Process: 3 is waiting at Barrier 9.
+Thread: 0 Process: 3 left Barrier 9.
+Thread: 0 Process: 3 is waiting at Barrier 10.
+Thread: 1 Process: 3 left Barrier 9.
+Thread: 1 Process: 3 is waiting at Barrier 10.
+Thread: 0 Process: 3 left Barrier 10.
+Thread: 1 Process: 3 left Barrier 10.
+[START] Process Id: 1
+Thread Number: 0 Process: 1 Ready.
+Thread: 0 Process: 1 is waiting at Barrier 1.
+Thread Number: 1 Process: 1 Ready.
+Thread: 1 Process: 1 is waiting at Barrier 1.
+Thread: 0 Process: 1 left Barrier 1.
+Thread: 0 Process: 1 is waiting at Barrier 2.
+Thread: 1 Process: 1 left Barrier 1.
+Thread: 1 Process: 1 is waiting at Barrier 2.
+Thread: 0 Process: 1 left Barrier 2.
+Thread: 0 Process: 1 is waiting at Barrier 3.
+Thread: 1 Process: 1 left Barrier 2.
+Thread: 1 Process: 1 is waiting at Barrier 3.
+Thread: 0 Process: 1 left Barrier 3.
+Thread: 0 Process: 1 is waiting at Barrier 4.
+Thread: 1 Process: 1 left Barrier 3.
+Thread: 1 Process: 1 is waiting at Barrier 4.
+Thread: 0 Process: 1 left Barrier 4.
+Thread: 0 Process: 1 is waiting at Barrier 5.
+Thread: 1 Process: 1 left Barrier 4.
+Thread: 1 Process: 1 is waiting at Barrier 5.
+Thread: 0 Process: 1 left Barrier 5.
+Thread: 0 Process: 1 is waiting at Barrier 6.
+Thread: 1 Process: 1 left Barrier 5.
+Thread: 1 Process: 1 is waiting at Barrier 6.
+Thread: 0 Process: 1 left Barrier 6.
+Thread: 0 Process: 1 is waiting at Barrier 7.
+Thread: 1 Process: 1 left Barrier 6.
+Thread: 1 Process: 1 is waiting at Barrier 7.
+Thread: 0 Process: 1 left Barrier 7.
+Thread: 0 Process: 1 is waiting at Barrier 8.
+Thread: 1 Process: 1 left Barrier 7.
+Thread: 1 Process: 1 is waiting at Barrier 8.
+Thread: 0 Process: 1 left Barrier 8.
+Thread: 0 Process: 1 is waiting at Barrier 9.
+Thread: 1 Process: 1 left Barrier 8.
+Thread: 1 Process: 1 is waiting at Barrier 9.
+Thread: 0 Process: 1 left Barrier 9.
+Thread: 0 Process: 1 is waiting at Barrier 10.
+Thread: 1 Process: 1 left Barrier 9.
+Thread: 1 Process: 1 is waiting at Barrier 10.
+Thread: 0 Process: 1 left Barrier 10.
+Thread: 1 Process: 1 left Barrier 10.
+Process 1 left Central Barrier MPI.
+Total Time:    401
+Process 0 left Central Barrier MPI.
+Total Time:    2168
+Process 2 left Central Barrier MPI.
+Total Time:    2480
+Process 3 left Central Barrier MPI.
+Total Time:    2540
+Removing user hchawla7 from group authjobs
